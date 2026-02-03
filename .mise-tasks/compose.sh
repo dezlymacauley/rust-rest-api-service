@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#MISE description="Start the Postgres service in detached mode"
+#MISE description="Run the docker-compose.yaml file"
 #MISE quiet=true
 
 # -d means detached. 
-# The service `db` (defined in compose.yml) will be started in the background.
+# The service `db` (defined in compose.yml) 
+# will be started in the background.
 docker compose up -d db
