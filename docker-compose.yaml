@@ -24,7 +24,11 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: rust_rest_api_service
     volumes:
-      - pg_data:/var/lib/postgresql/data
+      # This was used by Postgres prior to version 18.1
+      # - pg_data:/var/lib/postgresql/data
+
+      # This is the way to setup a volume in Postgres 18.1
+      - pg_data:/var/lib/postgresql
 
 volumes:
   # This where Postgres stores data inside the container
