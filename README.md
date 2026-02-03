@@ -47,6 +47,16 @@ _______________________________________________________________________________
 
 ### Project Setup
 
+Check that you have Docker installed
+```sh
+docker --version
+```
+
+Check that you have `docker compose version`
+```sh
+docker compose version
+```
+
 Give mise permission to apply the settings listed in `mise.toml`
 ```sh
 mise trust
