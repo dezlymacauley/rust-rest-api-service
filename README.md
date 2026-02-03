@@ -44,3 +44,22 @@ _______________________________________________________________________________
 5. DELETE USER
 
 _______________________________________________________________________________
+
+### Project Setup
+
+Give mise permission to apply the settings listed in `mise.toml`
+```sh
+mise trust
+```
+
+Make the bash scripts in the `.mise-tasks` directory executable,
+so that they can be used by mise to simplify your Postgres workflow.
+```sh
+chmod +x .mise-tasks/*.sh
+```
+
+Build the project
+```sh
+cargo build
+```
+_______________________________________________________________________________

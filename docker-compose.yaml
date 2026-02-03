@@ -1,0 +1,35 @@
+# This file is used to run multiple Docker containers together
+
+# Each service is a container,
+# For now I'm only adding one container for the Postgres database,
+# I'll setup the Rust container later.
+  
+# I'm calling service `db` (short for database) and making sure that the
+# container has the same name to make it easy to keep track of.
+# I've decided to use Postgres 18.1
+
+# I'm mapping port 5432 on my system, 
+# with port 5432 of the Docker container where the Postgres cluster 
+# will be setup.
+services:
+  db:
+    container_name: db
+    image: postgres:18.1
+    ports:
+      # HOST_PORT : CONTAINER_PORT
+      - "5432:5432"
+    environment:
+      # Environment variable for Postgres
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rust_rest_api_service
+    volumes:
+      -pg_data:/var/lib/postgresql/data
+
+volumes:
+  # This where Postgres stores data inside the container
+  # This creates a named volume (aka storage)
+  # so that the Postgres data persists when the Docker container is restarted.
+  # There is nothing after the `:` because 
+  # I want to use the default volume settings.
+  pg_data:
