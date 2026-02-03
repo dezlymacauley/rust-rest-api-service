@@ -1,0 +1,9 @@
+[package]
+name = "rust-rest-api-service"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "lib_dot_rs"
+
+[dependencies]
