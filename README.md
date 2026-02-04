@@ -3,13 +3,13 @@ _______________________________________________________________________________
 
 ### Technologies Used
 
-| Component         | Technology                  |
-|-------------------|-----------------------------|
-| Backend Framework | 🦀 Axum (Rust)              |
-| Database          | 🐘 Postgres (SQL)           |
-| Containerization  | 🐳 Docker                   |
-| API Testing       | 🥧 HTTPie (Python)          |
-| Project Scripts   | 🧑‍🍳 Mise, 🐚 Bash            |
+| Component         | Technology                   |
+|-------------------|------------------------------|
+| Backend Framework | 🦀 Axum + tokio + serde      |
+| Database          | 🐘 Postgres, SQLx, 🐍 pgcli  |
+| Containerization  | 🐳 Docker + Docker Compose   |
+| API Testing       | 🥧 HTTPie                    |
+| Project Scripts   | 🧑‍🍳 Mise, 🐚 Bash             |
 
 _______________________________________________________________________________
 

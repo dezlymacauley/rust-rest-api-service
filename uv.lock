@@ -333,13 +333,17 @@ wheels = [
 name = "rust-rest-api-service"
 version = "0.1.0"
 source = { virtual = "." }
-dependencies = [
+
+[package.dev-dependencies]
+dev = [
     { name = "httpie" },
     { name = "pgcli" },
 ]
 
 [package.metadata]
-requires-dist = [
+
+[package.metadata.requires-dev]
+dev = [
     { name = "httpie", specifier = "==3.2.4" },
     { name = "pgcli", specifier = "==4.4.0" },
 ]

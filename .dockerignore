@@ -1,0 +1,24 @@
+# Rust build output and configuration files
+/.cargo/
+/rust-toolchain.toml
+/rustfmt.toml
+/target/
+
+# Version control files
+/.git/
+/.gitignore
+
+# Bash Scripts for development workflow
+/.mise-tasks/
+
+# The Python virtual environment and Python config files
+/.venv/
+/.python-version
+/pyproject.toml
+/uv.lock
+
+# API Documentation
+/README.md
+
+# Mise Configuration
+/mise.toml
