@@ -31,36 +31,7 @@ use axum::{
     }
 };
 
-//_____________________________________________________________________________
-
-// SECTION: Event Handlers
-
-async fn root() -> &'static str {
-    "OK"
-}
-
-async fn create_user() -> &'static str {
-    "OK"
-}
-
-async fn list_users() -> &'static str {
-    "OK"
-}
-
-async fn get_user() -> &'static str {
-    "OK"
-}
-
-async fn update_user() -> &'static str {
-    "OK"
-}
-
-async fn delete_user() -> &'static str {
-    "OK"
-}
-
-
-//_____________________________________________________________________________
+use lib_dot_rs::event_handlers::*;
 
 // This is required to make the `main()` function asynchronous
 #[tokio::main]

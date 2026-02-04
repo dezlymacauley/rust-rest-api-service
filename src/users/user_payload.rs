@@ -13,7 +13,7 @@ use serde::Deserialize;
 // will  be automatically converted in Rust data that can be stored 
 // in this struct.
 #[derive(Deserialize)]
-pub struct UserPayLoad {
+pub struct UserPayload {
     pub name: String,
     pub email: String
 }
