@@ -1,2 +1,7 @@
-# Build output
+# The Rust build output
 /target/
+
+# The Python virtual environment
+# This is where uv will install the Python version required for the project
+# and the project dependencies
+/.venv/
