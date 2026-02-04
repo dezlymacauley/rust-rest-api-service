@@ -23,9 +23,52 @@ use sqlx::{
 
 };
 
+use axum::{
+    Router, 
+    routing::{
+        get, 
+        post
+    }
+};
+
+//_____________________________________________________________________________
+
+// SECTION: Event Handlers
+
+async fn root() -> &'static str {
+    "OK"
+}
+
+async fn create_user() -> &'static str {
+    "OK"
+}
+
+async fn list_users() -> &'static str {
+    "OK"
+}
+
+async fn get_user() -> &'static str {
+    "OK"
+}
+
+async fn update_user() -> &'static str {
+    "OK"
+}
+
+async fn delete_user() -> &'static str {
+    "OK"
+}
+
+
+//_____________________________________________________________________________
+
 // This is required to make the `main()` function asynchronous
 #[tokio::main]
 async fn main() {
+    //_________________________________________________________________________
+
+    // SECTION: Postgres Setup
+
     // Handle this gracefully later.
     let db_url: String = env::var("DATABASE_URL")
         .expect("Error: The environment variable DATABASE_URL is not set");
@@ -43,6 +86,50 @@ async fn main() {
         .connect(&db_url).await
         .expect("Error: Failed to connect to the database");
 
-    // migrate()! is a macro that produces a migration manager object
-    // sqlx::migrate!("");
+        // migrate()! is a macro that produces a migration manager object
+        // It takes the contents of those SQL files inside 
+        // the `database/migrations` directory and makes them a part of the
+        // binary of this program, so that you don't need to ship the .sql
+        // files separately when you deploy.
+
+    // `migrate!()` is a macro that produces 
+    // a migration manager (`Migrator`) object.
+    // It takes the SQL files inside the `database/migrations` directory
+    // and embeds their contents into the binary, 
+    // so you don't need to ship the `.sql` files separately when deploying.
+    sqlx::migrate!("database/migrations")
+        // This will run the embedded SQL commands
+        // `.run()` is asynchronous so await is needed.
+        .run(&pool).await
+        .expect("Error: Migrations failed");
+
+    //_________________________________________________________________________
+    
+    // SECTION: Axum Setup (The Server)
+
+    // I am using "0.0.0.0:8000" because I plan to use Docker later
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:8000").await
+        .expect("Error: Could not bind to port");
+
+    // TIP: Ignore the warning for `app` that says type annotations needed.
+    // This will be resolved when you use the  `axum:server()` function
+
+    let app = Router::new()
+        .route("/", get(root))
+        .route("/users", post(create_user).get(list_users))
+        .route(
+            "users/{id}", 
+            get(get_user).put(update_user).delete(delete_user)
+        )
+        .with_state(pool);
+
+    println!("✅ Server is running:");
+
+    // Make this dynamic later.
+    println!("0.0.0.0:8000");
+
+    axum::serve(listener, app).await
+        .expect("Error: Failed the start the Axum server");
+
+    //_________________________________________________________________________
 }
