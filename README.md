@@ -7,9 +7,9 @@ _______________________________________________________________________________
 |-------------------|-----------------------------|
 | Backend Framework | 🦀 Axum (Rust)              |
 | Database          | 🐘 Postgres (SQL)           |
-| Container         | 🐳 Docker                   |
-| API Testing       | 🥧 HTTPie (Python), 🐚 Bash |
-| API Testing       | 🥧 HTTPie (Python), 🐚 Bash |
+| Containerization  | 🐳 Docker                   |
+| API Testing       | 🥧 HTTPie (Python)          |
+| Project Scripts   | 🧑‍🍳 Mise, 🐚 Bash            |
 
 _______________________________________________________________________________
 
