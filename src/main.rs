@@ -42,4 +42,7 @@ async fn main() {
         // allowing other async tasks to run in the meantime.
         .connect(&db_url).await
         .expect("Error: Failed to connect to the database");
+
+    // migrate()! is a macro that produces a migration manager object
+    // sqlx::migrate!("");
 }
