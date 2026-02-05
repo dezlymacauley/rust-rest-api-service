@@ -1,5 +1,12 @@
 [tools]
-uv = "0.9.29"
+uv = "0.9.30"
 
 [settings]
 python.uv_venv_auto = true
+
+[env]
+LOGIN_USER_NAME = "user"
+DB_NAME = "rust_rest_api_service"
+DB_HOST = "127.0.0.1"
+DB_PORT = "5432"
+PGCLI_CONFIG_FILE = ".pgcli_config.ini"

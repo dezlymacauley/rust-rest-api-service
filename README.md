@@ -68,8 +68,10 @@ so that they can be used by mise to simplify your Postgres workflow.
 chmod +x .mise-tasks/*.sh
 ```
 
+_______________________________________________________________________________
+
 Build the project
 ```sh
-cargo build
+mise build-image
 ```
 _______________________________________________________________________________

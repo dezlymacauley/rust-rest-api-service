@@ -2,4 +2,4 @@
 #MISE description="Stop the container"
 #MISE quiet=true
 
-docker compose down
+docker compose down --remove-orphans
