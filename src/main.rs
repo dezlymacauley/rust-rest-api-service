@@ -89,7 +89,7 @@ async fn main() {
         .route("/", get(root))
         .route("/users", post(create_user).get(list_users))
         .route(
-            "users/{id}", 
+            "/users/{id}", 
             get(get_user).put(update_user).delete(delete_user)
         )
         .with_state(pool);

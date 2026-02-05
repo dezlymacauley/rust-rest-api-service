@@ -19,7 +19,7 @@ pub async fn list_users(
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)
 }
 
-async fn create_user(
+pub async fn create_user(
     State(pool): State<PgPool>,
     Json(payload): Json<UserPayload>
     ) -> Result<(StatusCode, Json<User>), StatusCode> {
@@ -31,7 +31,7 @@ async fn create_user(
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)
 }
 
-async fn get_user(
+pub async fn get_user(
     State(pool): State<PgPool>,
     Path(id): Path<i32>
     ) -> Result<Json<User>, StatusCode> {
@@ -42,7 +42,7 @@ async fn get_user(
         .map_err(|_| StatusCode::NOT_FOUND)
 }
 
-async fn update_user(
+pub async fn update_user(
     State(pool): State<PgPool>,
     Path(id): Path<i32>,
     Json(payload): Json<UserPayload>
@@ -56,7 +56,7 @@ async fn update_user(
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)
 }
 
-async fn delete_user(
+pub async fn delete_user(
     State(pool): State<PgPool>,
     Path(id): Path<i32>
 ) -> Result<StatusCode, StatusCode> {

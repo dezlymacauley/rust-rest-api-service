@@ -5,4 +5,4 @@
 # -d means detached. 
 # The service `db` (defined in compose.yml) 
 # will be started in the background.
-docker compose up -d db
+docker compose up -d
